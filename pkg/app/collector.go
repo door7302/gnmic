@@ -75,6 +75,9 @@ func (a *App) StartCollector(ctx context.Context) {
 						a.Logger.Printf("target %q: failed to decode proto bytes: %v", t.Config.Name, err)
 						continue
 					}
+					if a.Config.Debug {
+						a.Logger.Printf("target %q: gNMI Subscribe after: %+v", t.Config.Name, rsp)
+					}
 					m := outputs.Meta{
 						"source":            t.Config.Name,
 						"format":            a.Config.Format,
