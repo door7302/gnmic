@@ -43,6 +43,7 @@ func ResponseToEventMsgs(name string, rsp *gnmi.SubscribeResponse, meta map[stri
 	switch rsp := rsp.Response.(type) {
 	case *gnmi.SubscribeResponse_Update:
 		namePrefix, prefixTags := tagsFromGNMIPath(rsp.Update.GetPrefix())
+		fmt.Printf("DEBUG: %v", rsp)
 		// notification updates
 		uevs, err := updatesToEvent(name, namePrefix, rsp.Update.GetTimestamp(), rsp.Update.GetUpdate(), prefixTags, meta)
 		if err != nil {
