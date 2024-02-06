@@ -182,6 +182,7 @@ func (f *File) Init(ctx context.Context, name string, cfg map[string]interface{}
 	}
 	if f.cfg.TargetTemplate == "" {
 		f.targetTpl = outputs.DefaultTargetTemplate
+		fmt.Printf("TOTO0 %v ", outputs.DefaultTargetTemplate)
 	} else if f.cfg.AddTarget != "" {
 		fmt.Printf("TOTO1 %v ", f.cfg.TargetTemplate)
 		f.targetTpl, err = gtemplate.CreateTemplate("target-template", f.cfg.TargetTemplate)
