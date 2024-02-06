@@ -164,7 +164,6 @@ func (a *App) Export(ctx context.Context, rsp *gnmi.SubscribeResponse, m outputs
 	// target has no outputs explicitly defined
 	if len(outs) == 0 {
 		wg.Add(len(a.Outputs))
-		fmt.Printf("DAVID1: %v", a.Outputs)
 		for _, o := range a.Outputs {
 			go func(o outputs.Output) {
 				defer wg.Done()

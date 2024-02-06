@@ -238,6 +238,7 @@ func (f *File) Write(ctx context.Context, rsp proto.Message, meta outputs.Meta) 
 		return
 	}
 	for _, b := range bb {
+		fmt.Printf("DAVID2: %v", b)
 		if f.msgTpl != nil {
 			b, err = outputs.ExecTemplate(b, f.msgTpl)
 			if err != nil {
